@@ -1,0 +1,17 @@
+/*.popup-menu {
+    min-width: 15em;
+    /~ color: blue; ~/
+    /~ background-color: white; ~/
+    margin: 0; padding: 0;
+}  
+
+.popup-menu-content { padding: 0em 0em 0em 0em; }
+
+.popup-menu-item {
+    /~ color: red; ~/
+    /~ height: 16px; ~/
+    margin: 0px; padding: 2px;
+    border: 1px solid red;
+    /~ display: inline; ~/
+    width: 22px;
+}*/
