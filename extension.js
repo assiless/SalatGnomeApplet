@@ -109,7 +109,7 @@ function isBigger(left, right) {
         }
         else {
             if (minuteLeft !== minuteRight) {
-                return hourLeft>hourRight ? true : false;
+                return minuteLeft>minuteRight ? true : false;
             }
         }
     }
