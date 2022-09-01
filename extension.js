@@ -84,36 +84,25 @@ class Extension {
 
 // ______________________________________________________________--
 function getTime(date) {
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    let strTime = hours + ':' + minutes + ' ' + ampm;
-    return strTime;
+    return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 }
-function isBigger(left, right) {
-    [timeLeft, ampmLeft] = left.split(" ");
-    [timeRight,ampmRight] = right.split(" ");
-    // log(left, right);
 
-    if (ampmLeft !== ampmRight) {
-        return ampmLeft=="PM" ? true : false;
-    }
-    else {
-        [hourLeft, minuteLeft] = timeLeft.split(":");
-        [hourRight, minuteRight] = timeRight.split(":");
-        if (hourLeft !== hourRight) {
-            return hourLeft>hourRight ? true : false;
-        }
-        else {
-            if (minuteLeft !== minuteRight) {
-                return minuteLeft>minuteRight ? true : false;
-            }
-        }
+function isBigger(left, right) {
+    left = "11/24/2014 " + left;
+    right = "11/24/2014 " + right;
+
+    let leftDate = new Date(left).getTime();
+    let rightDate = new Date(right).getTime();
+
+    if (leftDate > rightDate) {
+        return true;
+    } else if (leftDate < rightDate) {
+        return false;
+    } else {
+        return true;
     }
 }
+
 function getNext(){
     let current_date = getTime(new Date());
     for (let index = 0; index < matches.length; index++) {
