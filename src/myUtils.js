@@ -68,5 +68,6 @@ function get(url, cb) {
 function clean(status_code, body) {
     let matches = body.match(regex);
     matches = matches.map(match => match.replace(`">`, `,`));
+    matches = matches.map(match => match.replace(` `, ` `));
     return matches;
 }
